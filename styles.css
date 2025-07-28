@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap');
+
+/* 
+- Mobile: 375px
+- Tablet: ?
+- Desktop: 1440px 
+*/
+
+:root{
+    --image-path-mobile: '';
+}
+
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow Se mi Condensed'
+}
+body, * {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+header {
+    display: grid;
+    grid-template-areas:
+        "logo logo logo"
+        "hero1 heading hero2"
+        "circle circle circle";
+    justify-items: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero_image1 { 
+    grid-area: hero1; 
+     width: 100%;
+    height: 100%;
+    object-fit: cover; /* or 'contain' for full image without cropping */
+    display: block;
+}
+.hero_image2 { 
+    grid-area: hero2; 
+     width: 100%;
+    height: 100%;
+    object-fit: cover; /* or 'contain' for full image without cropping */
+    display: block;
+}
+.heading { 
+    grid-area: heading; 
+    text-align: center;
+    justify-self: center;
+}
+.heading_wrapper{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.heading_wrapper > h1{
+    font-size: 4rem;
+    text-justify: justify;
+}
+.heading_wrapper > p{
+    font-size: 1.5rem;
+}
+
+button{
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 40px;
+    margin: 1rem;
+}
+
+.navigation_step{
+    grid-area: circle;
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+}
+
+.circle{
+    justify-self: center;
+}
+
+.logo_image{
+    object-fit: contain;
+    grid-area: logo;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.gallery{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    gap: 1rem;
+    justify-content: center;
+    justify-items: center;
+}
+
+.gallery > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or 'contain' for full image without cropping */
+    display: block;
+}
+
+@media (max-width: 1350px) {
+    header {
+        grid-template-areas:
+            "logo logo"
+            "hero1 hero2"
+            "heading heading"
+            "circle circle";
+    }
+
+}
+
+@media (max-width: 600px) {
+   button{
+        font-size: 1.2rem;
+        padding: 1rem;
+        border-radius: 40px;
+        margin: 1rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    header{
+        grid-template-rows: auto 1fr 1r auto;
+    }
+    .logo_image{
+        object-fit: contain;
+        grid-area: logo;
+        /* padding-top: 4rem;
+        padding-bottom: 2rem; */
+    }
+}
