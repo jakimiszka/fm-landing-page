@@ -5,15 +5,13 @@
     --custom-color2: #865FB3;
     --custom-version: #73BDCF;
     --custom-version2: #C39DEB;
+    --custom-grey: #8A89A0;
 }
 
 *, *::after, *::before{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Barlow Se mi Condensed'
-}
-body, * {
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
@@ -54,6 +52,7 @@ header {
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
+    color: var(--custom-grey);
 }
 .heading > h1{font-size: clamp(2rem, 6vw, 4rem);}
 
@@ -87,14 +86,15 @@ button{
     width: 4rem;
     height: 4rem;
     text-align: center;
+    color: var(--custom-grey);
     line-height: 4rem;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid var(--custom-grey);
     border-radius: 50%;
 }
 .stripe{
     height: 6rem;
-    border: .2px solid black;
+    border: .1px solid var(--custom-grey);
     text-align: center;
 }
 .pos_circle{
@@ -129,14 +129,13 @@ button{
     width: 100%;
     height: 100%;
     border-radius: 10%;
-    object-fit: cover; /* or 'contain' for full image without cropping */
+    object-fit: cover;
 }
 
 .details{
     display: flex;
     flex-direction: column;
     align-items: center;
-
     width: 80%;
     height: auto;
     margin-left: auto;
@@ -145,7 +144,11 @@ button{
     margin-top: 4rem;
     margin-bottom: 12rem;
 }
-.details > p {width: 50%;}
+.details > p {
+    width: 50%;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--custom-grey)
+}
 
 .details > h2,
 .details > h1,
@@ -167,11 +170,26 @@ footer{
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
-    height: 20rem;
+    height: auto;
+    min-height: 20rem;
     position: relative;
+    padding-top: 3rem;
 }
 
-footer > h1, footer > p{color: white;}
+footer > h1{
+    color: white;
+    font-size: 3rem;
+}
+footer > p{
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: white;
+    width: 30%;
+    text-align: center;
+}
+footer > button{
+    font-size: 1.5rem;
+    color: white;
+}
 
 .btn3{background-color: var(--custom-color2);}
 .btn3 > span {color: var(--custom-version2)}
@@ -197,6 +215,7 @@ footer > h1, footer > p{color: white;}
         align-items: center;
         text-align: center;
     }
+    footer > p{width: 80%;}
 }
 
 @media (max-width: 600px) {
@@ -225,4 +244,5 @@ footer > h1, footer > p{color: white;}
         align-items: center;
         text-align: center;
     }
+    footer > p{width: 100%;}
 }
