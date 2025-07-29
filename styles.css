@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap');
 
 :root{
-    --image-path-mobile: '';
+    --custom-color: #4E96A9;
+    --custom-color2: #865FB3;
+    --custom-version: #73BDCF;
+    --custom-version2: #C39DEB;
 }
 
 *, *::after, *::before{
@@ -25,37 +28,50 @@ header {
         "logo logo logo"
         "hero1 heading hero2"
         "circle circle circle";
-    gap:2rem;
     justify-items: center;
     align-items: center;
-    justify-content: space-between;
 }
 
 .hero {
     width: 100%;
     height: 100%;
     object-fit: cover; 
-    display: block;
 }
 .image1{grid-area: hero1; }
 .image2{grid-area: hero2; }
 
 .heading { 
     grid-area: heading;
-    width: 60%;
+    width: auto;
+    height: auto;
     text-align: center;
-    justify-self: center;
 }
 
-.heading > p{font-size: clamp(1rem, 2.5vw, 1.5rem);}
+.heading > p{
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    width: 80%; 
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
 .heading > h1{font-size: clamp(2rem, 6vw, 4rem);}
 
 button{
-    font-size: clamp(0.5rem, 2.5vw, 1.5rem);
-    padding: 1rem;
-    border-radius: 40px;
+    border: 0;
+    font-size: clamp(0.5rem, 2.5vw, 1.2rem);
+    font-weight: bold;
+    color: white;
+    background-color: purple;
+    padding: 1.2rem;
+    border-radius: 50px;
     margin: 1rem;
+    margin-top: 2rem;
 }
+.btn1{background-color: var(--custom-color);}
+.btn2{background-color: var(--custom-color2);}
+.btn1 > span{color: var(--custom-version);}
+.btn2 > span{color: var(--custom-version2);}
 
 .navigation_step{
     grid-area: circle;
@@ -68,18 +84,26 @@ button{
 }
 
 .circle{
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    line-height: 4rem;
+    background-color: white;
     border: 1px solid black;
     border-radius: 50%;
-    justify-self: center;
-    font-size: clamp(10px, 15vw, 20px);
-    width: clamp(3rem, 15vw, 5rem);
-    height: clamp(3rem, 15vw, 5rem);
-    text-align: center;
-    line-height: clamp(3rem, 15vw, 5rem);
 }
 .stripe{
-    height: 5rem;
+    height: 6rem;
     border: .2px solid black;
+    text-align: center;
+}
+.pos_circle{
+    position: absolute;
+    top: -2rem;
+}
+.pos_stripe{
+    top:-8rem;
+    position: absolute;
 }
 
 .logo_image{
@@ -104,52 +128,74 @@ button{
 .gallery > img{
     width: 100%;
     height: 100%;
+    border-radius: 10%;
     object-fit: cover; /* or 'contain' for full image without cropping */
-    display: block;
 }
 
 .details{
-    margin-top: 4rem;
     display: flex;
-    width: 60%;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-top: 4rem;
+    margin-bottom: 12rem;
 }
+.details > p {width: 50%;}
 
 .details > h2,
 .details > h1,
-.details > p{
-    margin: 1rem;
+.details > p{margin: 1rem;}
+
+.details > h2{
+    color: var(--custom-color);
+    letter-spacing: .3rem;
 }
+.details > h1{font-size: 40px;}
 
 footer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    background: url("./assets/desktop/image-footer.jpg");
+    background-image: url("./assets/desktop/image-footer.jpg");
+    background-color: rgb(40, 140, 160);
+    background-blend-mode: soft-light;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
     height: 20rem;
+    position: relative;
 }
+
+footer > h1, footer > p{color: white;}
+
+.btn3{background-color: var(--custom-color2);}
+.btn3 > span {color: var(--custom-version2)}
 
 @media (max-width: 1400px) {
     header {
         grid-template-areas:
-            "logo logo"
-            "hero1 hero2"
-            "heading heading"
-            "circle circle";
+            "logo logo logo logo"
+            "hero1 hero1 hero2 hero2"
+            "heading heading heading heading"
+            "circle circle circle circle";
     }
     .heading { 
+        margin-top: 2rem;
         grid-area: heading;
         width: 60%;
         text-align: center;
         justify-self: center;
+    }
+
+    footer{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
 
@@ -173,5 +219,10 @@ footer{
     .gallery{
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
+    }
+    footer{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
