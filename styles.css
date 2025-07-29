@@ -94,7 +94,7 @@ button{
 }
 .stripe{
     height: 6rem;
-    border: .1px solid var(--custom-grey);
+    border: .05px solid var(--custom-grey);
     text-align: center;
 }
 .pos_circle{
