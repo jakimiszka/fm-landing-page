@@ -89,7 +89,7 @@ button{
     color: var(--custom-grey);
     line-height: 4rem;
     background-color: white;
-    border: 1px solid var(--custom-grey);
+    border: .1px solid var(--custom-grey);
     border-radius: 50%;
 }
 .stripe{
